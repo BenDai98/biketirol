@@ -69,5 +69,15 @@ controlElevation.load("/data/etappe10.gpx");
 let pulldown = document.querySelector("#pulldown");
 
 for (let etappe of ETAPPEN) {
-    pulldown.innerHTML += `<option value="${etappe.user}">Etappe Nr. ${etappe.nr}: ${etappe.titel}</option>`;
+    let status = "";
+    if (etappe.nr == 10) {
+        status = " selected ";
+    }
+    pulldown.innerHTML += `<option ${status} value="${etappe.user}">Etappe Nr. ${etappe.nr}: ${etappe.titel}</option>`;
+}
+
+pulldown.onchange = function (evt) {
+    let username = evt.target.value;
+    let url = `https://${username}.github.io/biketirol`;
+    window.location.href = url;
 }
