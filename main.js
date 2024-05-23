@@ -81,3 +81,10 @@ pulldown.onchange = function (evt) {
     let url = `https://${username}.github.io/biketirol`;
     window.location.href = url;
 }
+
+
+var minimap = L.tileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png", {
+    attribution: `Datenquelle: <a href="https://www.data.gv.at/katalog/dataset/land-tirol_elektronischekartetirol">eGrundkarte Tirol</a>`
+});
+
+var miniMap = new L.Control.MiniMap(minimap).addTo(map);
